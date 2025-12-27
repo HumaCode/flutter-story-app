@@ -6,6 +6,7 @@ class AppColors {
   static const Color primaryContainer = Color(0xFFEADDFF);
   static const Color onPrimary = Colors.white;
   static const Color onPrimaryContainer = Color(0xFF21005D);
+  static const Color tertiary = Color(0xFFEC4899);
 
   // Secondary Colors
   static const Color secondary = Color(0xFF625B71);
