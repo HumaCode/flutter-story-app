@@ -16,12 +16,28 @@ class AuthRemoteDatasource {
       body: {'name': name, 'email': email, 'password': password},
     );
 
-    return result.fold((error) => Left(error), (data) {
-      final authResponse = AuthResponseModel.fromJson(data);
-      // Simpan token
-      ApiHandler.saveToken(authResponse.token);
-      return Right(authResponse);
-    });
+    return result.fold(
+      (error) {
+        // Print error jika request gagal
+        print('Register error: $error');
+        return Left(error);
+      },
+      (data) {
+        // Print data mentah yang diterima dari server
+        print('Register raw data: $data');
+
+        try {
+          final authResponse = AuthResponseModel.fromJson(data);
+          // Simpan token
+          ApiHandler.saveToken(authResponse.token);
+          return Right(authResponse);
+        } catch (e, stack) {
+          print('Register JSON parse error: $e');
+          print(stack);
+          return Left('Gagal parsing response register');
+        }
+      },
+    );
   }
 
   /// Login user

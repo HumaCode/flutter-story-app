@@ -3,7 +3,8 @@ class Variables {
   // Untuk Android Emulator: 10.0.2.2
   // Untuk iOS Simulator: localhost
   // Untuk Device fisik: IP address komputer (misal: 192.168.1.100)
-  static const String baseUrl = 'http://192.168.1.4:8000';
+  // static const String baseUrl = 'http://192.168.1.4:8000';
+  static const String baseUrl = 'https://mystory.humacode.my.id';
 
   static const String baseUrlApi = '$baseUrl/api';
 
